@@ -1,0 +1,161 @@
+/*Corpo da página*/
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/*Conteiner da imagem*/
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+}
+/*Responsável por deixar o png invisível no carregamento da página*/
+.invisivel{
+    display: none;
+}
+
+/*Imagem do nyan-uni.gif*/
+.imagem {
+    position: absolute;
+    top: 0;
+    left: -256px; /* Inicialmente fora da tela à esquerda */
+    width: 256px; /* Largura da imagem */
+    transform-origin: 50% 50%; /* Define o ponto de transformação como o centro da imagem */
+    animation: moveImage 10s linear;
+    animation-iteration-count: 2;
+    animation-delay: 0.5s;
+}
+
+/*Imagem do estrela.png*/
+.estrela {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    width: 20px; /* Largura da imagem */
+    height: 20px; /* Altura da imagem */
+    animation: surgeEstrela 5s linear;
+    animation-iteration-count: 1;
+    animation-delay: 22s; /*Calcular o dalay do unicórnio 35s*/
+    opacity: 0;
+    animation-fill-mode: forwards;
+    translate: (-100%, -100%);
+    filter: brightness(2);
+    color: #ffffcc;
+    box-shadow: 0 0 5px #fff,
+                 0 0 10px #fff, 
+                 0 0 20px #5b6ee1, 
+                 0 0 30px #5b6ee1, 
+                 0 0 40px #5b6ee1, 
+                 0 0 55px #5b6ee1, 
+                 0 0 70px #5b6ee1;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg); 
+    -moz-transform: rotate(45deg);  
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
+    -o-transform: rotate(45deg);
+    display: block;
+    pointer-events:all;
+}
+
+
+/* Imagem do WASABI caindo */
+.wasabi {
+    position: relative;
+    top: -80vh; /* Ajuste inicial para evitar corte */
+    animation: caiWasabi 16s linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    width: 80vw; /* Largura adaptativa */
+    max-width: 660px; /* Limite de largura */
+    height: auto;
+    margin: auto; /* Ajuste para centralização */
+    filter: brightness(3);
+    display: none;
+
+}
+
+
+.modal{
+    background: #020018;
+    color:aliceblue;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #010005;
+    min-width: 320px;
+    position: fixed;
+    left: 50%;
+    padding: 24px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    display:none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overlay {
+    background: #000;
+    height: 100vh;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 10;
+    display: none;
+}
+
+
+/*Animação da imagem*/
+@keyframes moveImage {
+    0% {
+        left: -300px; /* Inicialmente fora da tela à esquerda e no final da animação */
+        animation-timing-function: ease-in-out; /* Efeito de desaceleração no início e no final */
+        transform: scaleX(1); /* Sem inversão */
+    }
+    50% {
+        left: 105%; /* Meio do percurso à direita */
+        animation-timing-function: ease-in-out; /* Efeito de desaceleração no meio */
+        transform: scaleX(1); /* Sem inversão */
+    }
+    51% {
+        left: 105%; /* No final da animação, na mesma posição do meio */
+        animation-timing-function: ease-in-out; /* Efeito de desaceleração no final */
+        transform: scaleX(-1); /* Inverte horizontalmente no final */
+    }
+    100% {
+        left: -300px; /* Inicialmente fora da tela à esquerda e no final da animação */
+        animation-timing-function: ease-in-out; /* Efeito de desaceleração no início e no final */
+        transform: scaleX(-1); /* Inverte horizontalmente no final */
+    }
+
+
+}
+
+@keyframes surgeEstrela{
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes caiWasabi{
+    0%{
+        top: -1400px;
+    }
+    25%{
+        top: -90vh;
+    }
+    50%{
+        top: -90vh;
+    }
+    75%{
+        top: -90vh;
+    }
+    100%{
+        top: -90vh;
+    }
+}
+
